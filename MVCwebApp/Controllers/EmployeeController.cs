@@ -11,6 +11,7 @@ namespace MVCwebApp.Controllers
 {
     public class EmployeeController : Controller
     {
+        [HeaderFooterFilter]
         [Authorize]
         public ActionResult Index()
         {
@@ -36,24 +37,18 @@ namespace MVCwebApp.Controllers
                 vmEmpList.Add(evm);
             }
             vmlEmp.Employees = vmEmpList;
-            vmlEmp.FooterData = new FooterViewModel();
-            vmlEmp.FooterData.CompanyName = "The XX Company";
-            vmlEmp.FooterData.Year = DateTime.Now.Year.ToString();
-            vmlEmp.UserName = User.Identity.Name;
             return View("Index", vmlEmp);
         }
 
+        [HeaderFooterFilter]
         [AdminFilter]
         public ActionResult AddNew()
         {
             CreateEmployeeViewModel createEmployeeViewModel = new CreateEmployeeViewModel();
-            createEmployeeViewModel.FooterData = new FooterViewModel();
-            createEmployeeViewModel.FooterData.CompanyName = "The XX Company";
-            createEmployeeViewModel.FooterData.Year = DateTime.Now.Year.ToString();
-            createEmployeeViewModel.UserName = User.Identity.Name;
             return View("CreateEmployee", createEmployeeViewModel);
         }
 
+        [HeaderFooterFilter]
         [AdminFilter]
         [ValidateAntiForgeryToken]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
@@ -72,10 +67,6 @@ namespace MVCwebApp.Controllers
                         CreateEmployeeViewModel vm = new CreateEmployeeViewModel();
                         vm.FirstName = e.FirstName;
                         vm.LastName = e.LastName;
-                        vm.FooterData = new FooterViewModel();
-                        vm.FooterData.CompanyName = "The XX Company";
-                        vm.FooterData.Year = DateTime.Now.Year.ToString();
-                        vm.UserName = User.Identity.Name;
 
                         if (e.Salary.HasValue)
                         {
