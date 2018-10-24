@@ -13,6 +13,7 @@ namespace MVCwebApp.Controllers
     {
         [HeaderFooterFilter]
         [Authorize]
+        [Route("Employee/List")]
         public ActionResult Index()
         {
             List<EmployeeViewModel> vmEmpList = new List<EmployeeViewModel>();
