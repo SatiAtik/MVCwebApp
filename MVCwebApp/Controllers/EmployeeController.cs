@@ -55,9 +55,9 @@ namespace MVCwebApp.Controllers
         {
             List<UserDetails> userDList = new List<UserDetails>();
             UserListViewModel userLVM = new UserListViewModel();
-            EmployeeBusinessLayer empBAL = new EmployeeBusinessLayer();
+            UserBusinessLayer userBAL = new UserBusinessLayer();
             List<UserViewModel> uvmList = new List<UserViewModel>();
-            userDList = empBAL.GetUsers();
+            userDList = userBAL.GetUsers();
             for(int i=0; i < userDList.Count; i++)
             {
                 UserViewModel uvm = new UserViewModel();

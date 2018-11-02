@@ -168,6 +168,7 @@
     <Compile Include="Logger\FileLogger.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EmployeeBusinessLayer.cs" />
+    <Compile Include="Models\UserBusinessLayer.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

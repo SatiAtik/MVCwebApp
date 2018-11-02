@@ -21,7 +21,7 @@ namespace MVCwebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                EmployeeBusinessLayer bal = new EmployeeBusinessLayer();
+                UserBusinessLayer bal = new UserBusinessLayer();
                 UserStatus status = bal.GetUserValidity(u);
                 bool IsAdmin = false;
                 if (status == UserStatus.AuthenticatedAdmin)
