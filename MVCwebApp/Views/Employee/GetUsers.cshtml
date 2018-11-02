@@ -1,0 +1,29 @@
+﻿
+@using MVCwebApp.ViewModels
+@model UserListViewModel
+
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+
+@section TitleSection{ Users }
+
+@section ContentBody{
+    <div>
+        <table border="1">
+            <tr>
+                <th> User Name </th>
+                <th> Password </th>
+                <th> UserStatus </th>
+            </tr>
+            @foreach (UserViewModel item in Model.users)
+             {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Password</td>
+                    <td>@item.userStatus</td>
+                </tr>
+             }
+        </table>
+    </div>
+    }

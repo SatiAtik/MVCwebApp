@@ -8,9 +8,16 @@
     @RenderSection("HeaderSection", false)
 </head>
 <body>
-    <div style="text-align:right">
-        Hello @Model.UserName
-        <a href="~/Authentication/Logout">Logout</a>
+    <div>  
+        <div style="float:left;text-align:left; width:48%">
+            @{
+                Html.RenderAction("GetAddNewLink");
+                }
+            </div>
+        <div style="float:right;text-align:right; width:48%">
+            Hello @Model.UserName
+            <a href="~/Authentication/Logout">Logout</a>
+        </div>
     </div>
     <hr />
     <div>@RenderSection("ContentBody")</div>

@@ -19,6 +19,7 @@ namespace MVCwebApp
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<SalesERPDAL>());
+            //Database.SetInitializer<SalesERPDAL>(null);
         }
     }
 }

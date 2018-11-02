@@ -51,6 +51,27 @@ namespace MVCwebApp.Controllers
 
         [HeaderFooterFilter]
         [AdminFilter]
+        public ActionResult GetUsers()
+        {
+            List<UserDetails> userDList = new List<UserDetails>();
+            UserListViewModel userLVM = new UserListViewModel();
+            EmployeeBusinessLayer empBAL = new EmployeeBusinessLayer();
+            List<UserViewModel> uvmList = new List<UserViewModel>();
+            userDList = empBAL.GetUsers();
+            for(int i=0; i < userDList.Count; i++)
+            {
+                UserViewModel uvm = new UserViewModel();
+                uvm.UserName = userDList[i].UserName;
+                uvm.Password = userDList[i].Password;
+                uvm.userStatus = (UserStatus)userDList[i].userStatus;
+                uvmList.Add(uvm);
+            }
+            userLVM.users = uvmList;
+            return View("GetUsers", userLVM);
+        }
+
+        [HeaderFooterFilter]
+        [AdminFilter]
         [ValidateAntiForgeryToken]
         public ActionResult SaveEmployee(Employee e, string BtnSubmit)
         {
@@ -96,6 +117,6 @@ namespace MVCwebApp.Controllers
             {
                 return new EmptyResult();
             }
-        }
+        }        
     }
 }
